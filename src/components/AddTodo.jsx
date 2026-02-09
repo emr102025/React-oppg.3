@@ -1,4 +1,7 @@
+import { useTodo } from "../context/TodoContext";
+
 export default function AddTodo() {
+  const { addTodo: onAdd } = useTodo();
   return (
     <>
       <h1>AddTodo</h1>

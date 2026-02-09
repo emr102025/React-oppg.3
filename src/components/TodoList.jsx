@@ -1,4 +1,7 @@
+import { useTodo } from "../context/TodoContext";
+
 export default function TodoList() {
+  const {checkingTodos} = useTodo();
   return (
     <>
       <h1>TodoList</h1>
