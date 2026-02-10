@@ -1,13 +1,14 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 // Making the context creator
 const TodoContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTodo = () => useContext(TodoContext);
 
 // The provider for context
 export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useContext;
+  const [todos, setTodos] = useState([]);
 
   //Making an array and adding a new todo
   const addTodo = (text) => {
@@ -15,7 +16,7 @@ export const TodoProvider = ({ children }) => {
       setTodos((prev) => [
         ...prev,
         {
-          id: Number,
+          id: crypto.randomUUID(),
           title: text,
           done: false,
         },

@@ -9,7 +9,6 @@ export default function TodoList({ title, done, id }) {
 
   return (
     <>
-      <h1>TodoList</h1>
       <ul>
         <li>
           <input type="checkbox" checked={done} onChange={() => onToggle(id)} />

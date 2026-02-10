@@ -13,7 +13,6 @@ export default function AddTodo() {
 
   return (
     <>
-      <h1>AddTodo</h1>
       <form onSubmit={addNewTodo} action={""}>
         <input
           type="text"
