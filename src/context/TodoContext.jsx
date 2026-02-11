@@ -16,8 +16,8 @@ export const TodoProvider = ({ children }) => {
       setTodos((prev) => [
         ...prev,
         {
-          id: crypto.randomUUID(),
-          title: text,
+          id: Date.now(),
+          text: text,
           done: false,
         },
       ]);

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function AddTodo() {
   const { addTodo: onAdd } = useTodo();
-  const [text, setText] = useState(" ");
+  const [text, setText] = useState("");
 
   const addNewTodo = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function AddTodo() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button onClick={addNewTodo}>Add</button>
+        <button type="submit">Add</button>
       </form>
     </>
   );

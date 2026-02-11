@@ -1,11 +1,11 @@
 import { TodoProvider } from "../context/TodoContext";
 import TodoApp from "../TodoApp";
 
-export default function TodoProviders({ children }) {
+export default function TodoProviders() {
   return (
     <>
       <TodoProvider>
-        <TodoApp>{children}</TodoApp>
+        <TodoApp />
       </TodoProvider>
     </>
   );

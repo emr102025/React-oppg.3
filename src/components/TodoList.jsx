@@ -1,27 +1,23 @@
-import { useState } from "react";
 import { useTodo } from "../context/TodoContext";
 
-export default function TodoList({ title, done, id }) {
-  const { checkingTodos } = useTodo();
-
-  const { toggleTodo: onToggle, deleteTodo: onDelete } = useTodo();
-  const [newText, setNewText] = useState(title);
+export default function TodoList() {
+  const { todos, toggleTodo, removeTodo } = useTodo();
 
   return (
     <>
       <ul>
-        <li>
-          <input type="checkbox" checked={done} onChange={() => onToggle(id)} />
-          {checkingTodos ? (
+        {todos.map((item) => (
+          <li key={item.id}>
             <input
-              value={newText}
-              onChange={(e) => setNewText(e.target.value)}
+              type="checkbox"
+              checked={item.done}
+              onChange={() => toggleTodo(item.id)}
             />
-          ) : (
-            <h3>{title}</h3>
-          )}
-          <button onClick={() => onDelete(id)}>X</button>
-        </li>
+            <label>{item.text}</label>
+
+            <button onClick={() => removeTodo(item.id)}>X</button>
+          </li>
+        ))}
       </ul>
     </>
   );
