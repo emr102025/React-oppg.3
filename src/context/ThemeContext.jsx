@@ -1,20 +1,22 @@
-// import
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 
 // initialize context
-
 const ThemeContext = createContext();
 
 //hook
 // eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => useContext(ThemeContext);
 
-export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("Dark");
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => (prev === "Dark" ? "Light" : "Dark"));
   };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const providerObject = { theme, toggleTheme };
 
@@ -23,4 +25,4 @@ export default function ThemeProvider({ children }) {
       {children}
     </ThemeContext.Provider>
   );
-}
+};

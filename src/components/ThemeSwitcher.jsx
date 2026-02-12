@@ -1,10 +1,12 @@
 import { useTheme } from "../context/ThemeContext";
 
 export default function ThemeSwitcher() {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   return (
     <>
-      <button className={theme}>ThemeSwitcher</button>
+      <button className={theme} onClick={toggleTheme}>
+        Mode: {theme}
+      </button>
     </>
   );
 }
